@@ -45,10 +45,10 @@ const severeImpact = (data) => {
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
-    parseFloat((infectionsByRequestedTime
+  Math.trunc(parseFloat((infectionsByRequestedTime
         * avgDailyIncomePopulation
         * data.region.avgDailyIncomeInUSD
-        * incomeDays()).toFixed(2));
+        * incomeDays()).toFixed(2)));
 
   return {
     currentlyInfected,
