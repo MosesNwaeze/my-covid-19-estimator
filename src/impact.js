@@ -4,13 +4,13 @@ const impact = (data) => {
   const bedIndays = () => {
     switch (data.periodType) {
       case 'days': {
-        return data.totalHospitalBeds * (35 / 100);
+        return Math.trunc(data.totalHospitalBeds * (35 / 100));
       }
       case 'weeks': {
-        return Math.floor(data.totalHospitalBeds * (35 / 100));
+        return Math.trunc(data.totalHospitalBeds * (35 / 100));
       }
       case 'months': {
-        return data.totalHospitalBeds * (35 / 100);
+        return Math.trunc(data.totalHospitalBeds * (35 / 100));
       }
       default: {
         return 0;
