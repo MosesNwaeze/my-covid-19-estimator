@@ -46,12 +46,12 @@ const severeImpact = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(bedForCovid19 - severeCasesByRequestedTime);
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
-  const dollarsInFlight = Number(
+  const dollarsInFlight = Math.trunc(Number(
     (infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
     * incomeDays()).toFixed(2)
-  );
+  ));
   return {
     currentlyInfected,
     infectionsByRequestedTime,
