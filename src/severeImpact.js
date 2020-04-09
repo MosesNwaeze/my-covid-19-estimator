@@ -1,9 +1,7 @@
 /* eslint-disable operator-linebreak */
 const severeImpact = (data) => {
   const { avgDailyIncomePopulation } = data.region;
-  const incomePopulationPercent = avgDailyIncomePopulation;
   const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
-
   const incomeDays = () => {
     switch (data.periodType) {
       case 'days': {
@@ -47,10 +45,10 @@ const severeImpact = (data) => {
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
-    infectionsByRequestedTime
-    * incomePopulationPercent
-    * data.region.avgDailyIncomeInUSD
-    * incomeDays();
+    parseFloat((infectionsByRequestedTime
+        * avgDailyIncomePopulation
+        * data.region.avgDailyIncomeInUSD
+        * incomeDays()).toFixed(2));
 
   return {
     currentlyInfected,

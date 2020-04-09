@@ -2,8 +2,6 @@
 const impact = (data) => {
   const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
   const { avgDailyIncomePopulation } = data.region;
-  const incomePopulationPercent = avgDailyIncomePopulation;
-
   const incomeDays = () => {
     switch (data.periodType) {
       case 'days': {
@@ -48,10 +46,10 @@ const impact = (data) => {
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
-    infectionsByRequestedTime
-    * incomePopulationPercent
+  parseFloat((infectionsByRequestedTime
+    * avgDailyIncomePopulation
     * data.region.avgDailyIncomeInUSD
-    * incomeDays();
+    * incomeDays()).toFixed(2));
 
   return {
     currentlyInfected,
