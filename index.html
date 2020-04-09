@@ -3,9 +3,26 @@
     <title>Test</title>
     <script>
       const impact = (data) => {
-        const availableHospitalBeds = data.totalHospitalBeds * (35 / 100);
-        const percentageDailyPopulationIncome =
-          data.region.avgDailyIncomePopulation;
+        const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
+        const { avgDailyIncomePopulation } = data.region;
+        const incomePopulationPercent = avgDailyIncomePopulation;
+
+        const incomeDays = () => {
+          switch (data.periodType) {
+            case 'days': {
+              return 1;
+            }
+            case 'weeks': {
+              return 7;
+            }
+            case 'months': {
+              return 30;
+            }
+            default: {
+              return 0;
+            }
+          }
+        };
 
         const durationInDays = () => {
           switch (data.periodType) {
@@ -29,17 +46,19 @@
         const infectionsByRequestedTime = currentlyInfected * durationInDays();
         const severeCasesByRequestedTime =
           infectionsByRequestedTime * (15 / 100);
-        const hospitalBedsByRequestedTime =
-          availableHospitalBeds - severeCasesByRequestedTime;
+        const hospitalBedsByRequestedTime = Math.trunc(
+          bedForCovid19 - severeCasesByRequestedTime
+        );
         const casesForICUByRequestedTime =
           infectionsByRequestedTime * (5 / 100);
         const casesForVentilatorsByRequestedTime =
           infectionsByRequestedTime * (2 / 100);
         const dollarsInFlight =
-          percentageDailyPopulationIncome *
           infectionsByRequestedTime *
+          incomePopulationPercent *
           data.region.avgDailyIncomeInUSD *
-          30;
+          1;
+
         return {
           currentlyInfected,
           infectionsByRequestedTime,
@@ -52,9 +71,26 @@
       };
 
       const severeImpact = (data) => {
-        const availableHospitalBeds = data.totalHospitalBeds * (35 / 100);
-        const percentageDailyPopulationIncome =
-          data.region.avgDailyIncomePopulation;
+        const { avgDailyIncomePopulation } = data.region;
+        const incomePopulationPercent = avgDailyIncomePopulation;
+        const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
+
+        const incomeDays = () => {
+          switch (data.periodType) {
+            case 'days': {
+              return 1;
+            }
+            case 'weeks': {
+              return 7;
+            }
+            case 'months': {
+              return 30;
+            }
+            default: {
+              return 0;
+            }
+          }
+        };
 
         const durationInDays = () => {
           switch (data.periodType) {
@@ -74,22 +110,24 @@
             }
           }
         };
-
+        debugger;
         const currentlyInfected = data.reportedCases * 50;
         const infectionsByRequestedTime = currentlyInfected * durationInDays();
         const severeCasesByRequestedTime =
           infectionsByRequestedTime * (15 / 100);
-        const hospitalBedsByRequestedTime =
-          availableHospitalBeds - severeCasesByRequestedTime;
+        const hospitalBedsByRequestedTime = Math.trunc(
+          bedForCovid19 - severeCasesByRequestedTime
+        );
         const casesForICUByRequestedTime =
           infectionsByRequestedTime * (5 / 100);
         const casesForVentilatorsByRequestedTime =
           infectionsByRequestedTime * (2 / 100);
         const dollarsInFlight =
-          percentageDailyPopulationIncome *
           infectionsByRequestedTime *
+          incomePopulationPercent *
           data.region.avgDailyIncomeInUSD *
-          30;
+          1;
+        
         return {
           currentlyInfected,
           infectionsByRequestedTime,
@@ -102,6 +140,7 @@
       };
 
       const covid19ImpactEstimator = (data) => ({
+        data,
         impact: impact(data),
         severeImpact: severeImpact(data)
       });
@@ -110,7 +149,7 @@
         region: {
           name: 'Africa',
           avgAge: 19.7,
-          avgDailyIncomeInUSD: 5,
+          avgDailyIncomeInUSD: 5.00,
           avgDailyIncomePopulation: 0.71
         },
         periodType: 'days',
