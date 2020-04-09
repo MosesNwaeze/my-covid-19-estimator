@@ -7,13 +7,13 @@ const impact = (data) => {
   const incomeDays = () => {
     switch (data.periodType) {
       case 'days': {
-        return 1;
+        return data.timeToElapse;
       }
       case 'weeks': {
-        return 7;
+        return data.timeToElapse * 7;
       }
       case 'months': {
-        return 30;
+        return data.timeToElapse * 30;
       }
       default: {
         return 0;
@@ -45,9 +45,9 @@ const impact = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     bedForCovid19 - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * (5 / 100));
+  const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime =
-    Math.trunc(infectionsByRequestedTime * (2 / 100));
+    infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
     infectionsByRequestedTime
     * incomePopulationPercent
