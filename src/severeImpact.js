@@ -47,7 +47,7 @@ const severeImpact = (data) => {
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = Number(
-    (Number((infectionsByRequestedTime).toFixed(3))
+    infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
     * incomeDays()).toFixed(3)
