@@ -1,12 +1,31 @@
+/* eslint-disable consistent-return */
 const covid19ImpactEstimator = (data) => {
   const availableHospitalBeds = data.totalHospitalBeds * (35 / 100);
   const percentageDailyPopulationIncome = data.region.avgDailyIncomePopulation;
+  const durationInDays = () => {
+    switch (data.periodType) {
+      case 'days': {
+        return Math.floor(2 ** (data.timeToElapse / 3));
+      }
+      case 'weeks': {
+        const days = data.timeToElapse * 7;
+        return Math.floor(2 ** (days / 3));
+      }
+      case 'months': {
+        const days = data.timeToElapse * 30;
+        return Math.floor(2 ** (days / 3));
+      }
+      default: {
+        return 0;
+      }
+    }
+  };
   return {
     data,
     impact: {
       currentlyInfected: data.reportedCases * 10,
       get infectionsByRequestedTime() {
-        return this.currentlyInfected * 1024;
+        return this.currentlyInfected * durationInDays;
       },
       get severeCasesByRequestedTime() {
         return this.infectionsByRequestedTime * (15 / 100);
@@ -32,7 +51,7 @@ const covid19ImpactEstimator = (data) => {
     severeImpact: {
       currentlyInfected: data.reportedCases * 50,
       get infectionsByRequestedTime() {
-        return this.currentlyInfected * 1024;
+        return this.currentlyInfected * durationInDays;
       },
       get severeCasesByRequestedTime() {
         return this.infectionsByRequestedTime * (15 / 100);
