@@ -49,10 +49,10 @@ const impact = (data) => {
   const casesForVentilatorsByRequestedTime =
     infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = Number(
-    (Number((infectionsByRequestedTime).toFixed(1))
+    (Number((infectionsByRequestedTime).toFixed(3))
         * incomePopulationPercent
         * data.region.avgDailyIncomeInUSD
-        * incomeDays()).toFixed(1)
+        * incomeDays()).toFixed(3)
   );
   return {
     currentlyInfected,
