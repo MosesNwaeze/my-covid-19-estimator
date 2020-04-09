@@ -13,7 +13,7 @@ const severeImpact = (data) => {
         return 30;
       }
       case 'months': {
-        return 30;
+        return 7;
       }
       default: {
         return 0;
@@ -46,12 +46,12 @@ const severeImpact = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(bedForCovid19 - severeCasesByRequestedTime);
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
-  const dollarsInFlight = Math.trunc(Number(
-    (infectionsByRequestedTime
+  const dollarsInFlight = Number(
+    (Number((infectionsByRequestedTime).toFixed(2))
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
     * incomeDays()).toFixed(2)
-  ));
+  );
   return {
     currentlyInfected,
     infectionsByRequestedTime,
