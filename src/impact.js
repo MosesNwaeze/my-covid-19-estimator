@@ -7,7 +7,7 @@ const impact = (data) => {
   const incomeDays = () => {
     switch (data.periodType) {
       case 'days': {
-        return 30;
+        return 1;
       }
       case 'weeks': {
         return 30;
@@ -49,10 +49,10 @@ const impact = (data) => {
   const casesForVentilatorsByRequestedTime =
     infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = Number(
-    (Number((infectionsByRequestedTime).toFixed(2))
+    (Number((infectionsByRequestedTime).toFixed(1))
         * incomePopulationPercent
         * data.region.avgDailyIncomeInUSD
-        * incomeDays()).toFixed(2)
+        * incomeDays()).toFixed(1)
   );
   return {
     currentlyInfected,
