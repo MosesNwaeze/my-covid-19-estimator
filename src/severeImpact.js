@@ -48,7 +48,7 @@ const severeImpact = (data) => {
   parseFloat((infectionsByRequestedTime
         * avgDailyIncomePopulation
         * data.region.avgDailyIncomeInUSD
-        * incomeDays()).toFixed(3));
+        * incomeDays()).toFixed(-2));
 
   return {
     currentlyInfected,
