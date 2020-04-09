@@ -2,8 +2,7 @@
 const impact = (data) => {
   const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
   const { avgDailyIncomePopulation } = data.region;
-  const incomePopulationPercent =
-    (avgDailyIncomePopulation * data.population) / 100;
+  const incomePopulationPercent = avgDailyIncomePopulation;
 
   const durationInDays = () => {
     switch (data.periodType) {
@@ -36,7 +35,7 @@ const impact = (data) => {
     (infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
-    * 30).toFixed(2)
+    * 30).toFixed(3)
   );
   return {
     currentlyInfected,

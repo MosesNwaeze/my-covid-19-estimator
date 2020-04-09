@@ -1,7 +1,7 @@
 /* eslint-disable operator-linebreak */
 const severeImpact = (data) => {
   const { avgDailyIncomePopulation } = data.region;
-  const incomePopulationPercent = (avgDailyIncomePopulation * data.population) / 100;
+  const incomePopulationPercent = avgDailyIncomePopulation;
   const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
 
   const durationInDays = () => {
@@ -33,7 +33,7 @@ const severeImpact = (data) => {
     (infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
-    * 30).toFixed(2)
+    * 30).toFixed(3)
   );
   return {
     currentlyInfected,
