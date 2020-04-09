@@ -4,6 +4,23 @@ const severeImpact = (data) => {
   const incomePopulationPercent = avgDailyIncomePopulation;
   const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
 
+  const incomeDays = () => {
+    switch (data.periodType) {
+      case 'days': {
+        return 1;
+      }
+      case 'weeks': {
+        return 7;
+      }
+      case 'months': {
+        return 30;
+      }
+      default: {
+        return 0;
+      }
+    }
+  };
+
   const durationInDays = () => {
     switch (data.periodType) {
       case 'days': {
@@ -33,7 +50,7 @@ const severeImpact = (data) => {
     (infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
-    * 30).toFixed(3)
+    * incomeDays()).toFixed(2)
   );
   return {
     currentlyInfected,
