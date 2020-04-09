@@ -1,6 +1,24 @@
 const severeImpact = (data) => {
-  const bedsForCovid19 = data.totalHospitalBeds * (35 / 100);
-  const percentageDailyPopulationIncome = Math.floor(data.region.avgDailyIncomePopulation);
+  const percentageDailyPopulationIncome = Math.floor(
+    data.region.avgDailyIncomePopulation
+  );
+
+  const bedIndays = () => {
+    switch (data.periodType) {
+      case 'days': {
+        return data.totalHospitalBeds * (35 / 100);
+      }
+      case 'weeks': {
+        return Math.floor(data.totalHospitalBeds * (35 / 100));
+      }
+      case 'months': {
+        return data.totalHospitalBeds * (35 / 100);
+      }
+      default: {
+        return 0;
+      }
+    }
+  };
 
   const durationInDays = () => {
     switch (data.periodType) {
@@ -24,13 +42,13 @@ const severeImpact = (data) => {
   const currentlyInfected = data.reportedCases * 50;
   const infectionsByRequestedTime = currentlyInfected * durationInDays();
   const severeCasesByRequestedTime = infectionsByRequestedTime * (15 / 100);
-  const hospitalBedsByRequestedTime = Math.floor(bedsForCovid19 - severeCasesByRequestedTime);
+  const hospitalBedsByRequestedTime = bedIndays() - severeCasesByRequestedTime;
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = percentageDailyPopulationIncome
-  * infectionsByRequestedTime
-  * data.region.avgDailyIncomeInUSD
-  * 30;
+    * infectionsByRequestedTime
+    * data.region.avgDailyIncomeInUSD
+    * 30;
   return {
     currentlyInfected,
     infectionsByRequestedTime,
