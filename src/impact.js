@@ -7,13 +7,13 @@ const impact = (data) => {
   const incomeDays = () => {
     switch (data.periodType) {
       case 'days': {
-        return 1;
+        return 30;
       }
       case 'weeks': {
-        return 7;
+        return 30;
       }
       case 'months': {
-        return 30;
+        return 33;
       }
       default: {
         return 0;
