@@ -1,5 +1,5 @@
 const impact = (data) => {
-  const availableHospitalBeds = Math.floor(data.totalHospitalBeds * (35 / 100));
+  const bedForCovid19 = data.totalHospitalBeds * (35 / 100);
   const percentageDailyPopulationIncome = Math.floor(data.region.avgDailyIncomePopulation);
 
   const durationInDays = () => {
@@ -23,7 +23,7 @@ const impact = (data) => {
   const currentlyInfected = data.reportedCases * 10;
   const infectionsByRequestedTime = currentlyInfected * durationInDays();
   const severeCasesByRequestedTime = infectionsByRequestedTime * (15 / 100);
-  const hospitalBedsByRequestedTime = availableHospitalBeds - severeCasesByRequestedTime;
+  const hospitalBedsByRequestedTime = bedForCovid19 - severeCasesByRequestedTime;
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = percentageDailyPopulationIncome
