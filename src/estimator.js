@@ -5,15 +5,15 @@ const covid19ImpactEstimator = (data) => {
   const durationInDays = () => {
     switch (data.periodType) {
       case 'days': {
-        return Math.floor(2 ** (data.timeToElapse / 3));
+        return 2 ** Math.floor(data.timeToElapse / 3);
       }
       case 'weeks': {
         const days = data.timeToElapse * 7;
-        return Math.floor(2 ** (days / 3));
+        return 2 ** Math.floor(days / 3);
       }
       case 'months': {
         const days = data.timeToElapse * 30;
-        return Math.floor(2 ** (days / 3));
+        return 2 ** Math.floor(days / 3);
       }
       default: {
         return 0;
