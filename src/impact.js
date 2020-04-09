@@ -23,7 +23,7 @@ const impact = (data) => {
   const currentlyInfected = data.reportedCases * 10;
   const infectionsByRequestedTime = currentlyInfected * durationInDays();
   const severeCasesByRequestedTime = infectionsByRequestedTime * (15 / 100);
-  const hospitalBedsByRequestedTime = Math.flo0r(bedForCovid19 - severeCasesByRequestedTime);
+  const hospitalBedsByRequestedTime = Math.floor(bedForCovid19 - severeCasesByRequestedTime);
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight = percentageDailyPopulationIncome
