@@ -10,10 +10,10 @@ const severeImpact = (data) => {
         return 1;
       }
       case 'weeks': {
-        return 30;
+        return 7;
       }
       case 'months': {
-        return 7;
+        return 30;
       }
       default: {
         return 0;
@@ -47,7 +47,7 @@ const severeImpact = (data) => {
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
   const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
-    Math.trunc(infectionsByRequestedTime)
+    infectionsByRequestedTime
     * incomePopulationPercent
     * data.region.avgDailyIncomeInUSD
     * incomeDays();

@@ -10,10 +10,10 @@ const impact = (data) => {
         return 1;
       }
       case 'weeks': {
-        return 30;
+        return 7;
       }
       case 'months': {
-        return 7;
+        return 30;
       }
       default: {
         return 0;
@@ -49,10 +49,10 @@ const impact = (data) => {
   const casesForVentilatorsByRequestedTime =
     infectionsByRequestedTime * (2 / 100);
   const dollarsInFlight =
-    Math.trunc(infectionsByRequestedTime) *
-    incomePopulationPercent *
-    data.region.avgDailyIncomeInUSD *
-    incomeDays();
+    infectionsByRequestedTime
+    * incomePopulationPercent
+    * data.region.avgDailyIncomeInUSD
+    * incomeDays();
 
   return {
     currentlyInfected,
