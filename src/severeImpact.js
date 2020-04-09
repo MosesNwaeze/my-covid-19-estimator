@@ -32,7 +32,7 @@ const severeImpact = (data) => {
   const dollarsInFlight = Number(
     (infectionsByRequestedTime
     * incomePopulationPercent
-    * avgDailyIncomePopulation
+    * data.region.avgDailyIncomeInUSD
     * 30).toFixed(2)
   );
   return {
