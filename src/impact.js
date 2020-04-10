@@ -44,14 +44,12 @@ const impact = (data) => {
     bedForCovid19 - severeCasesByRequestedTime
   );
   const casesForICUByRequestedTime = infectionsByRequestedTime * (5 / 100);
-  const casesForVentilatorsByRequestedTime = infectionsByRequestedTime * (2 / 100);
+  const casesForVentilatorsByRequestedTime = Math.ceil(infectionsByRequestedTime * (2 / 100));
   const dollarsInFlight =
-  Math.ceil(
     infectionsByRequestedTime
     * avgDailyIncomePopulation
     * data.region.avgDailyIncomeInUSD
-    * incomeDays()
-  );
+    * incomeDays();
 
   return {
     currentlyInfected,
