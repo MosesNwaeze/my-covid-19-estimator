@@ -57,7 +57,6 @@ const impact = (data) => {
     incomeDays()
   );
 
-
   return {
     currentlyInfected,
     infectionsByRequestedTime,
