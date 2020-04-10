@@ -43,8 +43,8 @@ const impact = (data) => {
   const hospitalBedsByRequestedTime = Math.trunc(
     bedForCovid19 - severeCasesByRequestedTime
   );
-  const casesForICUByRequestedTime = Math.trunc(infectionsByRequestedTime * (5 / 100));
-  const casesForVentilatorsByRequestedTime = Math.trunc(infectionsByRequestedTime * (2 / 100));
+  const casesForICUByRequestedTime = Math.ceil(infectionsByRequestedTime * (5 / 100));
+  const casesForVentilatorsByRequestedTime = Math.ceil(infectionsByRequestedTime * (2 / 100));
   const dollarsInFlight =
     infectionsByRequestedTime
     * avgDailyIncomePopulation
