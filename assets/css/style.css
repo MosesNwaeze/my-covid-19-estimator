@@ -122,7 +122,7 @@ ul.navbar-nav {
 
 .navbar-brand {
   width: 162px;
-  background: url(../img/logo.png) left center no-repeat;
+  background: url("/assets/img/logo.png") left center no-repeat;
   text-indent: -99999px;
 }
 
@@ -178,10 +178,6 @@ ul.navbar-nav {
 .f1-fields {
 	color: black;
 	font-weight: 600;
-}
-
-.f1-input {
-  color: black;
 }
 
 
