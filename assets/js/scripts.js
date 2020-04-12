@@ -7,15 +7,6 @@ jQuery(document).ready(() => {
   /*
         Fullscreen background
     */
-  $.backstretch('assets/img/backgrounds/1.jpg');
-
-  $('#top-navbar-1').on('shown.bs.collapse', () => {
-    $.backstretch('resize');
-  });
-  $('#top-navbar-1').on('hidden.bs.collapse', () => {
-    $.backstretch('resize');
-  });
-  $('.backstretch img').attr('alt', 'background image');
 
   /*
         Form

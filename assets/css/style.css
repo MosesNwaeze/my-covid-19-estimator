@@ -5,6 +5,7 @@ body {
   color: #888;
   line-height: 30px;
   text-align: center;
+  background-color: cornflowerblue;
 }
 
 strong {
@@ -122,6 +123,8 @@ h4 {
 .f1 .input-error {
   border-color: #f35b3f;
 }
+
+
 
 /***** Media queries *****/
 
