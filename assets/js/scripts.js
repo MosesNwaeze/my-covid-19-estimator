@@ -15,6 +15,7 @@ jQuery(document).ready(() => {
   $('#top-navbar-1').on('hidden.bs.collapse', () => {
     $.backstretch('resize');
   });
+  $('.backstretch img').attr('alt', 'background image');
 
   /*
         Form
