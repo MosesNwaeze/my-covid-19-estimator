@@ -7,11 +7,9 @@ body {
   text-align: center;
 }
 
-
 strong {
   font-weight: 500;
 }
-
 
 h1,
 h2 {
@@ -103,15 +101,14 @@ h4 {
   font-weight: 800;
 }
 .f1 p {
-	color:black;
-	font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
 
 .f1-fields {
-	color: black;
-	font-weight: 600;
+  color: black;
+  font-weight: 600;
 }
-
 
 .f1 fieldset {
   display: none;
@@ -171,5 +168,3 @@ h4 {
     margin-bottom: 5px;
   }
 }
-
-
