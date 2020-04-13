@@ -14,123 +14,94 @@
       rel="stylesheet"
       disable
     />
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" disable/>
-    <link rel="stylesheet" href="assets/css/form-elements.css" />
-    <link rel="stylesheet" href="assets/css/style.css" />
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link rel="stylesheet" href="assets/css/style.css" />
 
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="assets/ico/favicon.png" />
   </head>
 
   <body>
-    <!-- Top menu -->
-    <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <img src="./assets/img/logo.png" alt="Site Logo" class="logo" />
-        </div>
+    <div class="main-content">
+      <header>
+        <img src="./assets/img/logo.png" class="logo" alt="Logo" />
+      </header>
+      <section>
+        <form role="form" action="#" method="post" class="f1">
+          <h1>COVID-19 INFECTION ESTIMATOR APP</h1>
+          <p>Fill in the form to capture your COVID-19 Patients</p>
+          <fieldset>
+            <div class="form-group">
+              <label class="f1-fields" for="population">Population:</label><br />
+              <input
+                type="text"
+                name="population"
+                placeholder="666222705..."
+                class="form-control"
+                id="population"
+                data-population
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="timeToElapse"
+                >Time To Elapse:</label
+              ><br />
+              <input
+                type="text"
+                name="timeToElapse"
+                placeholder="58 ..."
+                class="form-control"
+                id="timeToElapse"
+                data-time-to-elapse
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="reportedCases"
+                >Reported Cases:</label
+              ><br />
+              <input
+                type="text"
+                name="reportedCases"
+                placeholder="674 ..."
+                class="form-control"
+                id="reportedCases"
+                data-reported-cases
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="totalHospitalBeds"
+                >Total Hospital Beds:</label
+              ><br />
+              <input
+                type="text"
+                name="totalHospitalBeds"
+                placeholder="1380614 ..."
+                class="form-control"
+                id="totalHospitalBeds"
+                data-total-hospital-beds
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="periodType">Period Type:</label><br />
+              <select
+                data-period-type
+                class="form-control f1-fields"
+                id="periodType"
+              >
+                <option value="days" class="" selected>Days</option>
+                <option value="weeks" class="">Weeks</option>
+                <option value="months" class="">Months</option>
+              </select>
+            </div>
+            <div class="f1-buttons">
+              <button type="button" class="btn btn-next" data-go-estimate>
+                Create Estimate
+              </button>
+            </div>
+          </fieldset>
+        </form>
       </div>
-    </nav>
-
-    <!-- Top content -->
-    <div class="top-content">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box"
-          >
-            <form role="form" action="#" method="post" class="f1">
-              <h3>COVID-19 INFECTION ESTIMATOR APP</h3>
-              <p>Fill in the form to capture your COVID-19 Patients</p>
-              <fieldset>
-                <div class="form-group">
-                  <label class="f1-fields" for="population">Population:</label>
-                  <input
-                    type="text"
-                    name="population"
-                    placeholder="666222705..."
-                    class="form-control"
-                    id="population"
-                    data-population
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="f1-fields" for="timeToElapse"
-                    >Time To Elapse:</label
-                  >
-                  <input
-                    type="text"
-                    name="timeToElapse"
-                    placeholder="58 ..."
-                    class="form-control"
-                    id="timeToElapse"
-                    data-time-to-elapse
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="f1-fields" for="reportedCases"
-                    >Reported Cases:</label
-                  >
-                  <input
-                    type="text"
-                    name="reportedCases"
-                    placeholder="674 ..."
-                    class="form-control"
-                    id="reportedCases"
-                    data-reported-cases
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="f1-fields" for="totalHospitalBeds"
-                    >Total Hospital Beds:</label
-                  >
-                  <input
-                    type="text"
-                    name="totalHospitalBeds"
-                    placeholder="1380614 ..."
-                    class="form-control"
-                    id="totalHospitalBeds"
-                    data-total-hospital-beds
-                  />
-                </div>
-                <div class="form-group">
-                  <label class="f1-fields" for="periodType">Period Type:</label>
-                  <select
-                    data-period-type
-                    class="form-control f1-fields"
-                    id="periodType"
-                  >
-                    <option value="days" class="" selected>Days</option>
-                    <option value="weeks" class="">Weeks</option>
-                    <option value="months" class="">Months</option>
-                  </select>
-                </div>
-                <div class="f1-buttons">
-                  <button type="button" class="btn btn-next" data-go-estimate>
-                    Create Estimate
-                  </button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
-    <!-- Javascript -->
-    <script src="assets/js/jquery-1.11.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js" async></script>
-
-    <script src="assets/js/scripts.js" async></script>
-
-    <!--[if lt IE 10]>
-      <script src="assets/js/placeholder.js"></script>
-    <![endif]-->
   </body>
 </html>
