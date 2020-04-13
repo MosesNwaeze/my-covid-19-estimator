@@ -32,6 +32,13 @@ form p {
   font-size: 20px;
 }
 
+form p:nth-child(3) {
+  color: green;
+  font-weight: 600;
+  font-size: 20px;
+  display:none;
+}
+
 .form-group input {
   font-size: 18px;
   color: black;
@@ -78,3 +85,6 @@ label {
   height: 40px;
 }
 
+.f1-buttons button:hover {
+  cursor: pointer;
+};
