@@ -1,7 +1,5 @@
 body {
   background-color: #6495ed;
-  background-image: url('../img/backgrounds/1.jpg');
-  background-size: cover;
 }
 
 section {
@@ -80,10 +78,3 @@ label {
   height: 40px;
 }
 
-input[type='text']:-moz-placeholder,
-input[type='password']:-moz-placeholder,
-textarea:-moz-placeholder,
-textarea.form-control:-moz-placeholder {
-  color: black;
-  font-style: italic;
-}
