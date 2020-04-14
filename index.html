@@ -32,7 +32,7 @@
           <p>Fill in the form to capture your COVID-19 Patients</p>
           <p>Estimator successfully create</p>
           <fieldset>
-            <div class="form-group">
+                  <div class="form-group">
               <label class="f1-fields" for="population">Population:</label><br />
               <input
                 type="text"
@@ -94,6 +94,51 @@
                 <option value="months" class="">Months</option>
               </select>
             </div>
+            <div class="form-group">
+              <label class="f1-fields" for="averageAge">Average Age:</label><br />
+              <input
+                type="text"
+                name="averageAge"
+                placeholder="19.7"
+                class="form-control"
+                id="averageAge"
+                data-average-age
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="avgDailyIncomeInUSD">Average Daily Income:</label><br />
+              <input
+                type="text"
+                name="avgDailyIncomeInUSD"
+                placeholder="5"
+                class="form-control"
+                id="avgDailyIncomeInUSD"
+                data-average-daily-income-usd
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="avgDailyIncomePopulation">Average Daily Income Population:</label><br />
+              <input
+                type="text"
+                name="avgDailyIncomePopulation"
+                placeholder="0.71"
+                class="form-control"
+                id="avgDailyIncomePopulaion"
+                data-average-daily-population
+              />
+            </div>
+            <div class="form-group">
+              <label class="f1-fields" for="regionName">Region Name:</label><br />
+              <input
+                type="text"
+                name="regionName"
+                placeholder="Africa"
+                class="form-control"
+                id="regionName"
+                data-region-name
+              />
+            </div>
+
             <div class="f1-buttons">
               <button type="button" class="btn" data-go-estimate>
                 Create Estimate

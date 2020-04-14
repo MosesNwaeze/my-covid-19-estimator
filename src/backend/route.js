@@ -63,7 +63,7 @@ router.get('/json', (req, res) => {
 
 router.get('/xml', (req, res) => {
   res.type('application/xml');
-  res.status(200).send(builder.buildObject(data));
+  res.status(200).send(builder.buildObject(covid19ImpactEstimator(data)));
 });
 router.get('/log', (req, res) => {
   const { name } = req.body;
