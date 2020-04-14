@@ -68,4 +68,4 @@ const impact = (data) => {
   };
 };
 
-export default impact;
+module.exports = impact;

@@ -69,4 +69,4 @@ const severeImpact = (data) => {
   };
 };
 
-export default severeImpact;
+module.exports = severeImpact;

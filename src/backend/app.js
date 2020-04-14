@@ -1,5 +1,6 @@
-import express from 'express';
-import router from './route';
+require('dotenv').config();
+const express = require('express');
+const router = require('./route');
 
 
 const app = express();
@@ -14,4 +15,4 @@ app.use((req, res, next) => {
 app.use('/api/v1/on-covid-19', router);
 
 
-export default app;
+module.exports = app;
