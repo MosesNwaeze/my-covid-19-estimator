@@ -1,9 +1,8 @@
 const express = require('express');
 const covid19ImpactEstimator = require('../estimator');
-const connection = require('./model');
+// const connection = require('./model');
 
 const router = express.Router();
-
 
 const data = {
   region: {
@@ -24,9 +23,9 @@ router.get('/', (req, res) => {
     data: covid19ImpactEstimator(data)
   });
 });
-router.get('/json', (req, res) => {});
+/** router.get('/json', (req, res) => {});
 router.get('/xml', (req, res) => {});
 router.get('/log', (req, res) => {});
-router.post('/', (req, res) => {});
+router.post('/', (req, res) => {});* */
 
 module.exports = router;
