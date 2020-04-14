@@ -1,6 +1,11 @@
 const express = require('express');
+// const mongoose = require('mongoose');
+const xml = require('xml2js');
 const covid19ImpactEstimator = require('../estimator');
-// const connection = require('./model');
+
+const builder = new xml.Builder({
+  renderOpts: { pretty: false }
+});
 
 const router = express.Router();
 
@@ -23,9 +28,43 @@ router.get('/', (req, res) => {
     data: covid19ImpactEstimator(data)
   });
 });
-/** router.get('/json', (req, res) => {});
-router.get('/xml', (req, res) => {});
+
+router.post('/', (req, res) => {
+  const { population } = req.body;
+  const { timeToElapse } = req.body;
+  const { reportedCases } = req.body;
+  const { totalHospitalBeds } = req.body;
+  const { periodType } = req.body;
+  const { avgDailyIncomeInUSD } = req.body;
+  const { avgDailyIncomePopulation } = req.body;
+
+  res.status(200).json({
+    status: 200,
+    message: 'Data successfully captured',
+    data: {
+      population,
+      timeToElapse,
+      reportedCases,
+      totalHospitalBeds,
+      periodType,
+      avgDailyIncomeInUSD,
+      avgDailyIncomePopulation
+    }
+  });
+});
+
+router.get('/json', (req, res) => {
+  res.type('application/json');
+  res.status(200).json({
+    status: 'success',
+    data: covid19ImpactEstimator(data)
+  });
+});
+
+router.get('/xml', (req, res) => {
+  res.type('application/xml');
+  res.status(200).send(builder.buildObject(data));
+});
 router.get('/log', (req, res) => {});
-router.post('/', (req, res) => {});* */
 
 module.exports = router;
