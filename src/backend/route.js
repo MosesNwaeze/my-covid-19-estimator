@@ -65,6 +65,9 @@ router.get('/xml', (req, res) => {
   res.type('application/xml');
   res.status(200).send(builder.buildObject(data));
 });
-router.get('/log', (req, res) => {});
+router.get('/log', (req, res) => {
+  const { name } = req.body;
+  res.status(200).json({ name });
+});
 
 module.exports = router;
